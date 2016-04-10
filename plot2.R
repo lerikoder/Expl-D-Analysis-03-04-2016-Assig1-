@@ -1,11 +1,16 @@
-readFile()
 
+# Program plot2.R
 # Open device to plot on
-windows(480, 480)
+library(data.table)
+png("plot2.png", 480, 480)
 
 
 # Plot 2: Global_active_power vs. Date
-with(df02, plot(newDate, Global_active_power, main = "Global Active Power", col = "black",
-                type = "l", xlab = "Date Time"))
-dev.copy(png, "plot2.png")
+with(df02, plot(dateTime, Global_active_power, 
+                main = "Global Active Power", 
+                ylab = "Global Active Power (kilowatts)",
+                xlab = "Date Time", col = "black", 
+                type = "l"))
+
 dev.off()
+
